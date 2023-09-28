@@ -36,9 +36,12 @@ app.get("/getUser", async (req, res) => {
   }
 });
 
+const accumulatedData = {};
+
 app.post("/", (req, res) => {
-  console.log(req.body);
+  accumulatedData.data.push(req.body);
   res.status(200).send("I got the request");
+  console.log("I am called", accumulatedData);
 });
 
 app.post("/api/emailreading", (req, res) => {
